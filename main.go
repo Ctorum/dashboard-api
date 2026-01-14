@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/riza-asset/ram-ng-sec-fidc-dashboard-api/api"
-	"github.com/riza-asset/ram-ng-sec-fidc-dashboard-api/api/infra"
+	api "github.com/riza-asset/ram-ng-sec-fidc-dashboard-api/internal"
+	"github.com/riza-asset/ram-ng-sec-fidc-dashboard-api/internal/infra"
 )
 
 func main() {
@@ -13,5 +13,6 @@ func main() {
 	r := gin.Default()
 	routerGroup := r.Group("")
 	api.SetupRoutes(routerGroup)
+
 	r.Run()
 }

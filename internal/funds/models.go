@@ -1,11 +1,11 @@
 package funds
 
-import "github.com/riza-asset/ram-ng-sec-fidc-dashboard-api/api/infra"
+import "github.com/riza-asset/ram-ng-sec-fidc-dashboard-api/internal/infra"
 
 type Funds struct {
 	infra.UUIDMixin
 	infra.TimestampMixin
-	Alias                   string     `json:"alias"`
+	Alias                   string     `json:"alias" gorm:"unique"`
 	Name                    string     `json:"name"`
 	Cnpj                    string     `json:"cnpj"`
 	AssetType               Asset      `gorm:"type:assettypeconcept" json:"asset_type"`

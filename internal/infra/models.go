@@ -4,6 +4,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
+	"go.jetify.com/typeid/v2"
 )
 
 type TimestampMixin struct {
@@ -18,4 +19,16 @@ type UUIDMixin struct {
 
 type VarCharIDMixin struct {
 	ID string `json:"id"`
+}
+
+type TypeIDMixin struct {
+	ID string `json:"id"`
+}
+
+func (id TypeIDMixin) ToString() (string, error) {
+	tid, err := typeid.Parse(id.ID)
+	if err != nil {
+		return "", err
+	}
+	return tid.String(), nil
 }
